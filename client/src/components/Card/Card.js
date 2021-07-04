@@ -14,12 +14,13 @@ const styles = {
     backgroundColor: Colors.background,
     border: "1px solid black",
     width: "80%",
-    boxShadow: '5px, 10px',
+    boxShadow: '1px 1px',
     marginTop: 15,
     marginLeft: 'auto',
     marginRight: 'auto',
     textAlign: 'center',
-    padding: "10px 10px"
+    padding: "10px 10px",
+    borderRadius: '5px'
   }
 }
 

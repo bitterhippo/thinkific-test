@@ -2,6 +2,8 @@ import React, { useState, useEffect} from 'react';
 
 //Presentational Components
 import Card from "./components/Card/Card";
+import NavBar from "./components/NavBar/NavBar"
+
 
 function App() {
 
@@ -9,6 +11,7 @@ function App() {
 
   return (
     <div >
+      <NavBar />
       <Card>test</Card>
     </div>
   );
