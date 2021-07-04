@@ -19,7 +19,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    height: '5vh',
+    minHeight: '5vh',
     backgroundColor: Colors.backgroundOutline,
     color: 'white',
     borderBottom: `1vh solid ${Colors.detailing}`
@@ -29,7 +29,7 @@ const styles = {
     marginBottom: 'auto'
   },
   text: {
-    fontSize: '2vh',
+    fontSize: '16',
     fontWeight: 'bold',
   }
 }
