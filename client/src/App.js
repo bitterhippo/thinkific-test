@@ -12,7 +12,7 @@ function App() {
   return (
     <div >
       <NavBar />
-      <Card>test</Card>
+      <Card>Welcome</Card>
     </div>
   );
 }

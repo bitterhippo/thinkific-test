@@ -1,20 +1,36 @@
 import React from 'react';
 import Colors from '../Constants/Colors';
 
-const NavBar = props => {
+const NavBar = ({ isLoggedIn, userCredentials }) => {
   return (
     <div style={styles.navBarWrapper}>
-      TEST
-    </div>
+      <div style={{...styles.textWrapper, marginLeft: '4vw'}}>
+        <span style={styles.text}>Documentation</span>
+      </div>
+      <div style={{...styles.textWrapper, marginRight: '4vw'}}>
+        <span style={styles.text}>Log In</span>
+      </div>
+    </div >
   )
 };
 
 const styles = {
   navBarWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     height: '5vh',
     backgroundColor: Colors.backgroundOutline,
     color: 'white',
     borderBottom: `1vh solid ${Colors.detailing}`
+  },
+  textWrapper: {
+    marginTop: 'auto',
+    marginBottom: 'auto'
+  },
+  text: {
+    fontSize: '2vh',
+    fontWeight: 'bold',
   }
 }
 
