@@ -10,6 +10,7 @@ const SALT_Rounds = 6;
 let userSchema = new mongoose.Schema({
   email: String,
   password: String,
+  sequence: Number
 });
 
 module.exports = mongoose.model('User', userSchema);
