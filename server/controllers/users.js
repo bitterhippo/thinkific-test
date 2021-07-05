@@ -5,32 +5,29 @@ module.exports = {
   logIn,
 };
 
-// Not Postman Validated
+// Postman Validated 
 async function signUp(req, res) {
-  console.log(req.body);
   const user = new User(req.body);
-  console.log(user);
   try {
     await user.save();
-    res.json({ token: createJWT(user) });
+    res.json({ user });
   } catch (err) {
     res.status(400).json(err);
   }
 };
 
-// Not Postman Validated
+// Postman Validated
 async function logIn(req, res) {
+  const user = await User.findOne({ email: req.body.email });
   try {
-    const user = await User.findOne({ email: req.body.email });
-    const token = createJWT(user);
-    res.json({ token });
+    res.json({ user });
   } catch (err) {
     //You could possibly bifurcate this further into login/password
     return (res.status(401).json({ err: 'Incorrect login credentials' }))
   }
 };
 
-// Encryption Function
+// Encryption Function - NOT WORKING YET
 
 function createJWT(user) {
   let token_contents = {

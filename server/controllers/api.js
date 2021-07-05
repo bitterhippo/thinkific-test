@@ -6,28 +6,27 @@ module.exports = {
   set,
 };
 
-async function current(req, res) {
-  try {
-    //Query and encrypt
-    const user = await User.findOne({ email: req.body.email });
-    const token = createJWT(user);
+//Postman Validated - Also probably uncessary
 
+async function current(req, res) {
+  const user = await User.findOne({ email: req.body.email });
+  try {
     //Response from database to client
-    res.json({ token });
+    res.json({ user });
   } catch (err) {
     console.log(`error with getCurrent API route`)
   }
 };
 
+//Not Postman Validated
+
 async function plusOne(req, res) {
+  const user = await User.findOne({ email: req.body.email });
   try {
-    //Query > Alter > Encrypt
-    const user = await User.findOne({ email: req.body.email });
     user.sequence += 1;
-    const token = createJWT(user);
 
     //Response to Client
-    res.json({ token });
+    res.json({ user });
 
     //Cleanup
     await user.save();
@@ -36,10 +35,11 @@ async function plusOne(req, res) {
   }
 };
 
+//Postman Validated
+
 async function set(req, res) {
+  const user = await User.findOne({ email: req.body.email });
   try {
-    //Query > Alter 
-    const user = await User.findOne({ email: req.body.email });
     const newNumber = req.body.number();
     user.sequence = newNumber;
 
