@@ -7,6 +7,7 @@ module.exports = {
 
 // Not Postman Validated
 async function signUp(req, res) {
+  console.log(req.body);
   const user = new User(req.body);
   console.log(user);
   try {

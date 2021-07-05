@@ -2,6 +2,8 @@ const path = require('path');
 const express = require("express");
 const mongoose = require('mongoose');
 
+var bodyParser = require('body-parser');
+
 const db = 'mongodb+srv://User:asdasd12@cluster0.px3ep.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 const connectDB = async () => {
@@ -30,6 +32,9 @@ let usersRouter = require('./routes/users');
 let apiRouter = require('./routes/api');
 
 app.use(express.static(path.resolve(__dirname, '../client/build')))
+
+//Middleware
+app.use(bodyParser());
 
 app.use('/users', usersRouter);
 app.use('/api', apiRouter);
