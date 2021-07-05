@@ -28,7 +28,7 @@ async function plusOne(req, res) {
     res.json({ token });
 
     //Cleanup
-    user.save();
+    await user.save();
   } catch (err) {
     console.log(`error with plusOne API route`)
   }
@@ -45,7 +45,7 @@ async function set(req, res) {
     res.json({ user})
 
     //Cleanup
-    user.save();
+    await user.save();
   } catch(err) {
     console.log(`error with set API route`)
   }

@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const jwt = require('jsonwebtoken');
 module.exports = {
   signUp,
   logIn,
@@ -7,6 +8,7 @@ module.exports = {
 // Not Postman Validated
 async function signUp(req, res) {
   const user = new User(req.body);
+  console.log(user);
   try {
     await user.save();
     res.json({ token: createJWT(user) });
