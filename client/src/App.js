@@ -6,12 +6,12 @@ import {
   Link
 } from "react-router-dom";
 //Routes
-import LogIn from './screens/LogIn'
-import Documentation from './screens/Documentation'
+import Home from './screens/Home';
+import Documentation from './screens/Documentation';
+import SignIn from './screens/SignIn';
 
-//Presentational Components
-import Card from "./components/Card/Card";
-import NavBar from "./components/NavBar/NavBar"
+//Always rendered
+import NavBar from "./components/NavBar/NavBar";
 
 
 function App() {
@@ -22,14 +22,16 @@ function App() {
     <Router>
       <div >
         <NavBar />
-        <Card>This is my submission for the Thinkific Fullstack Developer Challenge</Card>
       </div>
       <Switch>
-        <Route path="/login">
-          <LogIn />
+        <Route exact path="/">
+          <Home />
         </Route>
-        <Route path="/documentation">
+        <Route exact path="/documentation">
           <Documentation />
+        </Route>
+        <Route exact path="/signin">
+          <SignIn />
         </Route>
       </Switch>
     </Router >
