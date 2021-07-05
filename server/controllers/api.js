@@ -18,7 +18,7 @@ async function current(req, res) {
   }
 };
 
-//Not Postman Validated
+//Postman Validated
 
 async function plusOne(req, res) {
   const user = await User.findOne({ email: req.body.email });
@@ -39,10 +39,8 @@ async function plusOne(req, res) {
 
 async function set(req, res) {
   const user = await User.findOne({ email: req.body.email });
+  user.sequence = req.body.sequence;
   try {
-    const newNumber = req.body.number();
-    user.sequence = newNumber;
-
     //Response to Client
     res.json({ user})
 
