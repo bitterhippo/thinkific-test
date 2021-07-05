@@ -29,3 +29,15 @@ async function logIn(req, res) {
   }
 };
 
+// Encryption Function
+
+function createJWT(user) {
+  let token_contents = {
+    _id: user._id,
+    email: user.email,
+    number: user.sequence
+  }
+  return jwt.sign(
+    { user: token_contents }, // data payload
+  );
+}
