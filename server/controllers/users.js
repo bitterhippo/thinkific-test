@@ -5,10 +5,10 @@ module.exports = {
 };
 
 async function signUp(req, res) {
-  console.log(req)
+  console.log('signUp')
 };
 
 async function logIn(req, res) {
-  console.log(req)
+  console.log('login')
 };
 

@@ -9,7 +9,7 @@ let apiRouter = require('./routes/api');
 
 app.use(express.static(path.resolve(__dirname, '../client/build')))
 
-app.use('/api/users', usersRouter);
+app.use('/users', usersRouter);
 app.use('/api', apiRouter);
 
 //NPM Start - Server Intitialization Confirmation
