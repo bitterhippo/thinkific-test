@@ -5,13 +5,48 @@ module.exports = {
 };
 
 async function current(req, res) {
-  console.log('current')
+  try {
+    //Query and encrypt
+    const user = await User.findOne({ email: req.body.email });
+    const token = createJWT(user);
+
+    //Response from database to client
+    res.json({ token });
+  } catch (err) {
+    console.log(`error with getCurrent API route`)
+  }
 };
 
 async function plusOne(req, res) {
-  console.log('plusOne')
+  try {
+    //Query > Alter > Encrypt
+    const user = await User.findOne({ email: req.body.email });
+    user.sequence += 1;
+    const token = createJWT(user);
+
+    //Response to Client
+    res.json({ token });
+
+    //Cleanup
+    user.save();
+  } catch (err) {
+    console.log(`error with plusOne API route`)
+  }
 };
 
 async function set(req, res) {
-  console.log('set')
+  try {
+    //Query > Alter 
+    const user = await User.findOne({ email: req.body.email });
+    const newNumber = req.body.number();
+    user.sequence = newNumber;
+
+    //Response to Client
+    res.json({ user})
+
+    //Cleanup
+    user.save();
+  } catch(err) {
+    console.log(`error with set API route`)
+  }
 };
