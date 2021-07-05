@@ -1,20 +1,19 @@
-import React from 'react';
-
-const IP = ''
+const IP = 'http://localhost:3001'
 
 export default {
 
-  async Login(accountName, passWord, callback) {
+  async Login(accountName, password) {
 
     let data = JSON.stringify({
       email: accountName,
-      password: passWord,
+      password: password,
     });
 
     let requestOptions = {
       method: 'POST',
       headers: {
-        "Content-Type": " application/json"
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
       },
       body: data,
     };
@@ -22,11 +21,7 @@ export default {
     let request = fetch(IP, requestOptions)
       .then(response => response.text())
       .then(result => {
-        callback({
-          token: JSON.parse(result),
-          accountInfo: JSON.parse(atob(result.split('.')[1]))
-        }
-        )
+        console.log(result)
       })
       .catch((err) => console.log(err))
 

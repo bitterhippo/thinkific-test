@@ -2,7 +2,7 @@ const User = require("../models/User");
 const jwt = require('jsonwebtoken');
 module.exports = {
   current,
-  plusOne,
+  next,
   set,
 };
 
@@ -20,7 +20,7 @@ async function current(req, res) {
 
 //Postman Validated
 
-async function plusOne(req, res) {
+async function next(req, res) {
   const user = await User.findOne({ email: req.body.email });
   try {
     user.sequence += 1;

@@ -17,6 +17,13 @@ import NavBar from "./components/NavBar/NavBar";
 function App() {
 
   const [loggedIn, setLoggedIn] = useState("");
+  const [userData, setUserData] = useState("");
+  
+  useEffect(() => {
+    if (userData.hasOwnProperty('email')) {
+      setLoggedIn(true)
+    }
+  }, [userData])
 
   return (
     <Router>
