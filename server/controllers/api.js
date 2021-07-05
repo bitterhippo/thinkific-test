@@ -5,13 +5,13 @@ module.exports = {
 };
 
 async function current(req, res) {
-  console.log('signUp')
+  console.log('current')
 };
 
 async function plusOne(req, res) {
-  console.log('login')
+  console.log('plusOne')
 };
 
 async function set(req, res) {
-  console.log('login')
+  console.log('set')
 };
