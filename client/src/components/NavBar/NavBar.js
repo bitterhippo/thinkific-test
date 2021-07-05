@@ -1,16 +1,44 @@
 import React from 'react';
 import Colors from '../Constants/Colors';
 
-const NavBar = ({ isLoggedIn, userCredentials }) => {
+const UnknownUser = () => {
+  return (
+    <div style={styles.navBarWrapper}>
+      <div style={{...styles.textWrapper, marginLeft: '4vw'}}>
+        <span style={styles.text}>Welcome Page</span>
+      </div>
+      <div style={{...styles.textWrapper, marginLeft: '4vw'}}>
+        <span style={styles.text}>Documentation</span>
+      </div>
+      <div style={{...styles.textWrapper, marginRight: '4vw'}}>
+        <span style={styles.text}>Sign In</span>
+      </div>
+    </div >
+  )
+};
+
+const KnownUser = () => {
   return (
     <div style={styles.navBarWrapper}>
       <div style={{...styles.textWrapper, marginLeft: '4vw'}}>
         <span style={styles.text}>Documentation</span>
       </div>
+      <div style={{...styles.textWrapper, marginLeft: '4vw'}}>
+        <span style={styles.text}>Current Integer</span>
+      </div>
       <div style={{...styles.textWrapper, marginRight: '4vw'}}>
-        <span style={styles.text}>Log In</span>
+        <span style={styles.text}>Sign Out</span>
       </div>
     </div >
+  )
+}
+
+const NavBar = ({ isLoggedIn, userCredentials }) => {
+  return (
+    <>
+    { isLoggedIn !== true && UnknownUser() }
+    { isLoggedIn === true && KnownUser() }
+    </>
   )
 };
 
